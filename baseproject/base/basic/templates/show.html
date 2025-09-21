@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>
+    {{student}}
+</h1>
+<hr>
+<h1>
+    using for loop
+{% for stu in student %}
+    {{stu.id}}
+    {{stu.name}}
+    {{stu.course}}
+    {{stu.age}}
+{% endfor %}
+</h1>
+<hr>
+<h1>
+    using lists
+    {% for stu in student %}
+     <ul>
+        <li>name:{{stu.id}}</li>
+        <li>name:{{stu.name}}</li>
+        <li>name:{{stu.course}}</li>
+        <li>age:{{stu.age}}</li>
+     </ul>
+    {% endfor%}
+</h1>
+<hr>
+<h1>
+    using table
+    <table border="1">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>course</th>
+      <th>age</th>
+    </tr>
+    {% for stu in student%}
+    <tr>
+        <td>{{stu.id}}</td>
+        <td>{{stu.name}}</td>
+        <td>{{stu.course}}</td>
+        <td>{{stu.age}}</td>
+    </tr>
+      {% endfor %}
+    </table>
+</h1>
+</body>
+</html>

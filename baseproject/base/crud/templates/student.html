@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CRUD OPERATION</h1>
+    <h1>
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Age</th>
+            </tr>
+            {% for i in information %}
+             <tr>
+                 <td>{{i.id}}</td>
+                 <td>{{i.name}}</td>
+                 <td>{{i.course}}</td>
+                 <td>{{i.age}}</td>
+             </tr>
+            {% endfor %}
+        </table>
+         </h1>
+         <h1>
+        <fieldset>
+            <legend>ADD operation</legend>
+            <form method="post">
+              {% csrf_token %}
+             <label>Name</label>
+             <input type="text" name="name" placeholder="enter your name">
+             <br>
+             <label>course</label>
+             <input type="text" name="course" placeholder="enter your course">
+             <br>
+             <label>Age</label>
+             <input type="number" name="age" placeholder="enter your age"><br>
+             <input type="submit" value="Add">
+
+            </form>
+        </fieldset>
+    </h1>
+</body>
+</html>

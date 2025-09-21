@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>students Information</h1>
+         <!-- {{details}} -->
+
+         <h1>
+              <table border="3">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>DELETE</th>
+                    <th>UPDATE</th>
+                </tr>
+                 {% for i in details %}
+                 <tr>
+                   <td>{{i.id}}</td>
+                   <td>{{i.name}}</td>
+                   <td>{{i.email}}</td>
+                   <td>{{i.phone}}</td>
+                   <td>
+                    <a href="{% url "delete" i.id %}">delete</a>
+                   </td>
+                   <td>
+                    <a href="{% url "update" i.id %}">update</a>
+                   </td>
+                </tr>
+                {% endfor %}
+            </table>
+         </h1>
+
+         <!-- <h1>
+         <fieldset>
+             <legend>Update Form</legend>
+             <form method="post">
+                {% csrf_token %}
+                 <input type="text" placeholder="Name" name="name" value="{{stu.name}}"><br>
+                 <input type="email" placeholder="Email" name="email"value="{{stu.email}}"><br>
+                 <input type="number" placeholder="phone" name="phone" value="{{stu.phone}}"><br>
+                 <input type="submit" value="Update">
+            </form>
+
+         </fieldset>
+         </h1> -->
+
+
+         <h1>
+            <fieldset>
+                {% if stu %}
+                <legend>update Form</legend>
+                {% else %}
+                <legend>ADD Form</legend>
+                {% endif %}
+                
+                <form method="post">
+                   {% csrf_token %}
+                    <input type="text" placeholder="Name" name="name" value="{{stu.name}}"><br>
+                    <input type="email" placeholder="Email" name="email"value="{{stu.email}}"><br>
+                    <input type="number" placeholder="phone" name="phone" value="{{stu.phone}}"><br>
+                    {% if stu %}
+                    <input type="submit" value="Update">
+
+                    {% else %}
+                    <input type="submit" value="Add">
+                    {% endif %}
+               </form>
+   
+            </fieldset>
+            </h1>
+</body>
+</html>

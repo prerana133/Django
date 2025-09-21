@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+</head>
+<body>
+    <h1>Data from backend from database</h1>
+    {{students}}
+
+    <hr>
+
+    <h1>representing data in for loop</h1>
+    {% for stu in students %}
+        {{stu.id}}
+        {{stu.name}}
+        {{stu.age}}
+        {{stu.course}}
+    {% endfor %}
+
+    <hr>
+
+    <h1>using for loop and ul or ol</h1>
+    {% for stu in students %}
+    <ul>    
+        <li>name : {{stu.id}}</li>
+        <li>name : {{stu.name}}</li>
+        <li>age : {{stu.age}}</li>
+        <li>course : {{stu.course}}</li>
+    </ul>
+    {% endfor %}
+
+    <hr>
+
+    <h1>using for loop and table</h1>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Course</th>
+        </tr>
+
+        {% for stu in students %}
+        <tr>
+            <td>{{stu.id}}</td>
+            <td>{{stu.name}}</td>
+            <td>{{stu.age}}</td>
+            <td>{{stu.course}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
